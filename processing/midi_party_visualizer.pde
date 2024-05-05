@@ -95,7 +95,7 @@ void draw() {
   int shotsPerFrame = width / shotWidth;
   if (frameCount % shotsPerFrame  == 0) {
     // Save Frame
-    //saveFrame("recs/rec-######.png");
+    saveFrame("recs/rec-######.png");
     savedFrames += 1;
     // Redraw background
     drawMIDIBackground();
