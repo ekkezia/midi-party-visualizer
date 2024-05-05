@@ -16,22 +16,15 @@ By default Processing will take the webcam of the device it is running in. For t
 2. Open Iriun Camera in both devices and make sure they are connected on the same wifi.
 3. Open Photobooth app, change the camera by going to camera->Iriun Camera. This will change the default camera for the mac to Iriun Camera, and this change will take over the camera input globally, including Processing.
 
-# Pitch Detector
+# 🎻 Pitch Detector on MAX
 The pitch detector file will guess the pitch with the retune library, and also get the amplitude of the audio. These data will be sent over oscEvent via the values: /pitch and /amp.
 
 The oscEvent is connected to local network and should be identical to the network defined in the Processing sketch (default: 12001)
 
-## Dependency to be downloaded on your device and phone camera:
+## 📚 Dependency to be downloaded on your device and phone camera:
 - Processing
 - Max 
 - Iriun Camera
 - OBS Studio for livestreaming (optional)
 
-### This project has been shown at Bad Times Disco's "Call Me" party in 2023 and will be shown in M+ on 31 May 2024.
-
-ctlin ctlout for slitscan
-straight no chaser
-tribal dance
-ahmad jamal
-
-my one and only
+#### 👯‍♂️ This project has been shown at Bad Times Disco's "Call Me" party in 2023 and will be shown in M+ on 31 May 2024.
