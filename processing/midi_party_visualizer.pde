@@ -3,6 +3,7 @@ import oscP5.*;
 import netP5.*;
 
 Capture video;
+PImage bgImage;
 
 // OSC receive
 OscP5 oscP5;
@@ -26,6 +27,7 @@ int shotHeight = rowHeight;
 int shotWidth = shotHeight * 3/2;
 int numOfColumns = 4;
 int numOfRows;
+int shotsPerFrame; 
 
 void setup() {
   size(900, 600);
@@ -39,48 +41,28 @@ void setup() {
   
   numOfColumns = width / colWidth;
   numOfRows = height / rowHeight;
+  shotsPerFrame = (width / shotWidth) + 1; // add 1 column to give space for clean up
   
-  // MIDI Background
+  // Background Image
+  bgImage = loadImage("moonwalk.jpg");
+  bgImage.resize(width, height);
+  
+  // Draw MIDI Background
   drawMIDIBackground();
 }
 
 void getImage() {
   video.read();
   index++;
-}
-
-void drawMIDIBackground() {
-  background(0); // todo: change with environment bg
-  
-  // columns
-  for (int i = 0; i < numOfColumns; i++) {
-    stroke(255);
-    line(i * colWidth, 0, i * colWidth, height);
-    
-    // Measure Label
-    fill(255);
-    textSize(16);
-    text(startFrom + (i + (savedFrames * numOfColumns)), (colWidth * i),  height/2); // graphic score marker
-  }
-  // rows
-  for (int j = 0; j < numOfRows; j++) {
-    stroke(255);
-    line(0, j * rowHeight, width, j * rowHeight);
-    
-    // Pitch Label
-    fill(255);
-    textSize(16);
-    text(musicScale[j], 0, (rowHeight * j) + (rowHeight/2)); // graphic score marker
-  }
-}
-  
+}  
 
 void draw() {
-  frameRate(2); // todo: follow dj bpm
+  frameRate(2); // todo?: follow dj bpm
   getImage();
 
   // Show images
-  int x = (index * shotWidth) % width;
+  int x = ((index - 1) % shotsPerFrame) * shotWidth;
+
   if (index > 1) {
      // Alter image if it is loud enough, to indicate the "accented beat"
     //if (mappedAmp < 90) {
@@ -92,11 +74,11 @@ void draw() {
   }
   
   // Clean up canvas when reaching the end of width
-  int shotsPerFrame = width / shotWidth;
-  if (frameCount % shotsPerFrame  == 0) {
+  if ((frameCount) % shotsPerFrame == 0) {
     // Save Frame
-    saveFrame("recs/rec-######.png");
+    //saveFrame("recs/rec-######.png");
     savedFrames += 1;
+    
     // Redraw background
     drawMIDIBackground();
   }
