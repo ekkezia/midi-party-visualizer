@@ -22,9 +22,9 @@ The pitch detector file will guess the pitch with the retune library, and also g
 The oscEvent is connected to local network and should be identical to the network defined in the Processing sketch (default: 12001)
 
 ## 📚 Dependency to be downloaded on your device and phone camera:
-- Processing
-- Max 
-- Iriun Camera
-- OBS Studio for livestreaming (optional)
+- <a href="https://processing.org/download" target="_blank">Processing</a> (Version: 4.3)
+- <a href="https://cycling74.com/downloads" target="_blank">Max MSP</a> (Version: 8)
+- <a href="https://iriun.com/" target="_blank">Iriun Webcam</a>
+- <a href="https://obsproject.com/download" target="_blank">OBS Studio for livestreaming</a> (optional)
 
 #### 👯‍♂️ This project has been shown at <a href="https://e-kezia.com/call-me" target="_blank">Bad Times Disco's "Call Me"</a> party in 2023 and will be shown in M+ on 31 May 2024.
