@@ -23,6 +23,7 @@ The oscEvent is connected to local network and should be identical to the networ
 
 ## 📚 Dependency to be downloaded on your device and phone camera:
 - <a href="https://processing.org/download" target="_blank">Processing</a> (Version: 4.3)
+- Download <b>Video</b> and <b>oscp5</b> from `Tools -> Add Tools -> Libraries` in Processing
 - <a href="https://cycling74.com/downloads" target="_blank">Max MSP</a> (Version: 8)
 - <a href="https://iriun.com/" target="_blank">Iriun Webcam</a>
 - <a href="https://obsproject.com/download" target="_blank">OBS Studio for livestreaming</a> (optional)
