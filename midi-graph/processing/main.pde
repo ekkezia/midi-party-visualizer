@@ -17,7 +17,7 @@ int minMidi = 36;
 int maxMidi = 83;
 int range = maxMidi - minMidi;
 int noOfMidi = 12; // default no of midi is 24, but it is too many for us
-String[] musicScale = {"C", "C#","D","D#","E","F","F#","G","G#","A","A#","B","C"};
+String[] musicScale = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"};
 
 int canvasHeight = 600;
 int canvasWidth = canvasHeight * 3/2;
@@ -28,6 +28,11 @@ int shotWidth = shotHeight * 3/2;
 int numOfColumns = 4;
 int numOfRows;
 int shotsPerFrame; 
+
+int rate = 1;
+int maxRate = 5;
+int minRate = 1;
+int offset = 0;
 
 void setup() {
   size(900, 600);
@@ -57,21 +62,21 @@ void getImage() {
 }  
 
 void draw() {
-  frameRate(2); // todo?: follow dj bpm
+  frameRate(4);
   getImage();
 
+  framerate();
+     
   // Show images
   int x = ((index - 1) % shotsPerFrame) * shotWidth;
 
-  if (index > 1) {
-     // Alter image if it is loud enough, to indicate the "accented beat"
-    //if (mappedAmp < 90) {
-      //fill(0);
-      //rect(x, pitchY, shotWidth, shotHeight);
-      //filter(BLUR, 6);
-    //}
+  if (index > 1 && offset % rate == 0) {
     image(video, x, pitchY, shotWidth, shotHeight);
   }
+  
+  //textSize(128);
+  //text(rate, 100, 100);
+  //offset++;
   
   // Clean up canvas when reaching the end of width
   if ((frameCount) % shotsPerFrame == 0) {

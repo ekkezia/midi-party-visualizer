@@ -1,5 +1,6 @@
 void drawMIDIBackground() {
-  background(bgImage); // todo: change with environment bg
+  //background(bgImage); // todo: change with environment bg
+  background(0);
   
   // columns
   for (int i = 0; i < numOfColumns; i++) {

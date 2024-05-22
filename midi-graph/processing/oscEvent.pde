@@ -5,6 +5,9 @@ float amplitude = 0;
 float scale=6;
 // Declare a smooth factor
 float smooth_factor=0.1;
+float low, high;
+float highThreshold = 0.1;
+float lowThreshold = 0.01;
 
 int pitchY = 0;
 int mappedAmp;
@@ -18,5 +21,10 @@ void oscEvent(OscMessage theOscMessage) {
     
     if (theOscMessage.checkAddrPattern("/pitch")) {     
       pitchY = ((floor(value) - minMidi) % (noOfMidi)) * rowHeight;
+    }
+    
+    if (theOscMessage.checkAddrPattern("/high")) {
+      high = value;
+      //mappedPitch = floor(map(value, minMidi, maxMidi, 1, height)); // only on average range
     }
 }
